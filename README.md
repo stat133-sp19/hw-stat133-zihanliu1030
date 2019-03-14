@@ -1,6 +1,6 @@
 # Stat 133, Spring 2019
 
-Private Repository for HW assignments of Stat 133 (Spring 2019)
+Private Repository for WORKOUT assignments of Stat 133 (Spring 2019)
 
 - Name: Zihan Liu
 - Github username: zihanliu1030
