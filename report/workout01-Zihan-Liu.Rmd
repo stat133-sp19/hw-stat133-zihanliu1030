@@ -1,0 +1,48 @@
+---
+title: "Workout 1"
+author: "Zihan Liu"
+output: github_document
+---
+
+```{r}
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(jpeg)
+library(grid)
+shots_data <- read.csv('../data/shots-data.csv')
+twoPT_Effective_Shooting <- arrange(
+  summarise(
+    group_by(shots_data, name),
+    total = sum(shot_type == '2PT Field Goal'),
+    made = sum((shot_type == '2PT Field Goal' & shot_made_flag == 'shot_yes')),
+    perc_made = made/total),
+  desc(perc_made)
+)
+twoPT_Effective_Shooting
+threePT_Effective_Shooting <- arrange(
+  summarise(
+    group_by(shots_data, name),
+    total = sum(shot_type == '3PT Field Goal'),
+    made = sum((shot_type == '3PT Field Goal' & shot_made_flag == 'shot_yes')),
+    perc_made = made/total),
+  desc(perc_made)
+)
+threePT_Effective_Shooting
+Effective_Shooting <- arrange(
+  summarise(
+    group_by(shots_data, name),
+    total = sum((shot_type == '2PT Field Goal' | shot_type == '3PT Field Goal')),
+    made = sum(((shot_type == '2PT Field Goal' | shot_type == '3PT Field Goal') & shot_made_flag == 'shot_yes')),
+    perc_made = made/total),
+  desc(perc_made)
+)
+Effective_Shooting
+```
+
+```{r out.width='80%', echo=FALSE, fig.align='center'}
+knitr::include_graphics('../images/gsw-shot-charts.png')
+```
+
+# *Narrative:*
+
