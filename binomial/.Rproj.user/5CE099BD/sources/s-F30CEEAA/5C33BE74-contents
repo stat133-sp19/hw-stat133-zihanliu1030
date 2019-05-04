@@ -1,0 +1,40 @@
+library(testthat)
+
+# Tests for stat_range()
+x <- c(1, 2, 3, 4, 5)
+y <- c(1, 2, 3, 4, NA)
+z <- c(TRUE, FALSE, TRUE)
+w <- letters[1:5]
+source("functions.R")
+context("Test for range value") 
+test_that("range works as expected", {
+  x <- c(1, 2, 3, 4, 5)
+  expect_equal(stat_range(x), 4)
+  expect_length(stat_range(x), 1)
+  expect_type(stat_range(x), 'double')
+})
+
+# Part 1) Practice writing simple tests
+test_that("range works as expected", {
+  x <- y
+  expect_length(stat_range(x), 1)
+  expect_equal(stat_range(x), NA_real_)
+})
+test_that("range works as expected", {
+  x <- z
+  expect_equal(stat_range(x), 1L)
+  expect_length(stat_range(x), 1)
+  expect_type(stat_range(x), 'integer')
+})
+test_that("range works as expected", {
+  x <- w
+  expect_error(stat_range(x))
+})
+test_that("centers work as expected", {
+  x <- z
+  expect_length(stat_centers(x), 2)
+})
+test_that("spreads work as expected", {
+  x <- z
+  expect_length(stat_spreads(x), 3)
+})

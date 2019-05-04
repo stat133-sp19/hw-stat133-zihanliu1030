@@ -1,0 +1,14 @@
+Package: binomial
+Type: Package
+Title: Binomial Distribution
+Version: 0.1.0
+Author: Zihan Liu
+Maintainer: Zihan Liu <zihanliu1030@berkeley.edu>
+Description: calculates different kinds of parameters in a specified binomial distribution
+    For example, total number of possible choices, table of probabilities under various settings, and distribution graphs
+License: GPL-2
+Encoding: UTF-8
+LazyData: true
+Suggests: 
+    testthat
+RoxygenNote: 6.1.1
